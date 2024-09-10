@@ -1,0 +1,71 @@
+ul li{
+    list-style: none;
+    padding:8px;
+}
+ul li a {
+    text-decoration: none;
+}
+ul{
+    display :flex;
+    justify-content: flex-start;
+    background-color: rgb(138,128,128);
+    height : 40px;
+    width:1160px;
+}
+a{
+    line-height:25px;
+    color:white;
+    margin:20px;
+    padding:10px 10px;
+}
+.active{
+    background-color: rgb(217, 8, 29);
+}
+
+/* Container with background image */
+.image-container {
+    /* width: 100%;
+    height: auto; */
+    height: 500px;
+    width: 1150px; 
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    /* height: auto; */
+    height: 500px;
+    width: 1150px; 
+  }
+
+/* Overlay text */
+.text-overlay {
+    position: absolute; /* Positions the text absolutely within the image container */
+    top: 20%; /* Vertically centers the text */
+    left: 50%; /* Horizontally centers the text */
+    transform: translate(-50%, -50%); /* Centers the text exactly */
+    color: white; /* Text color */
+    text-align: center; /* Centers text */
+    padding: 20px; /* Adds padding around the text */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 10px; /* Optional: rounds the corners of the text background */
+}
+
+/* Optional: Styling for text elements */
+.text-overlay h1 {
+    font-size: 2em; /* Adjust font size as needed */
+    margin: 0; /* Removes default margin */
+    /* color: aqua; */
+
+    color: #f0f0f0;
+    top:0;
+}
+
+.text-overlay p {
+    font-size: 1.2em; /* Adjust font size as needed */
+    margin: 10px 0 0; /* Adjust margins as needed */
+}
+
+.logout{
+    margin-left: auto;
+ }

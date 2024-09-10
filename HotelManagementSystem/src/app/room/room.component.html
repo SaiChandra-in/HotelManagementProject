@@ -1,0 +1,103 @@
+<ul>
+  <li>
+      <a routerLink="/staff" routerLinkActive="active">staff</a>
+  </li>
+  <li>
+      <a routerLink="/room" routerLinkActive="active">room</a>
+  </li>
+  <li>
+      <a routerLink="/inventory" routerLinkActive="active">inventory</a>
+  </li>
+  <li class="logout">
+      <button on-click="logOut()">Logout</button>
+  </li>
+</ul>
+
+<div *ngIf="rooms && rooms.length > 0" class="container room-table" text-align="center">
+    <div class="headers">
+      <h2 class="table-title">Rooms</h2>
+      <!-- <button class="btn add" (click)="openForm()">Add Room</button> -->
+    </div>
+</div>
+  <div>
+    <button class="btn add" (click)="openForm()">Add Room</button>
+    <!-- <button routerLink="/manager-dashboard" class="btn btn-primary" style="float:right">Back</button> -->
+  </div>
+
+  <div class="pivot-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>RoomId</th>
+          <th>RoomNumber</th>
+          <th>RoomType</th>
+          <th>RoomDescription</th>
+          <th>RoomStatus</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let r of rooms">
+          <td>{{r.roomId}}</td>
+          <td>{{ r.roomNumber }}</td>
+          <td>{{ r.roomType }}</td>
+          <td>{{ r.roomDescription }}</td>
+          <td>{{ r.roomStatus }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="openForm(r)">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteRoom(r.roomId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="rooms && rooms.length === 0">
+    <p>No rooms available</p>
+  </div>
+  <!-- <ng-template #err>
+      <p class="text-danger">Error fetching data</p>
+  </ng-template> -->
+
+  <div class="form-wrapper" *ngIf="showForm">
+    <div class="room-form">
+        <h2 class = "text-center text-info">{{formHeader}}</h2>
+      <!-- <div class="group">
+        <label for="roomId">RoomId :</label>
+        <input type="text" class="form-control" [(ngModel)]="roomId" name="RoomId">
+      </div> -->
+
+        <div class="group">
+            <label for="roomNumber">RoomNumber :</label>
+            <input type="text" class="form-control" [(ngModel)]="roomNumber" name="RoomNumber">
+        </div>
+
+        <div class="group">
+          <label for="roomType">RoomType :</label>
+          <input type="text" class="form-control" [(ngModel)]="roomType" name="RoomType">
+        </div>
+
+        <div class="group">
+          <label for="roomDescription">RoomDescription :</label>
+          <input type="text" class="form-control" [(ngModel)]="roomDescription" name="RoomDescription">
+        </div>
+    
+        <div class="group">
+          <label for="roomStatus">RoomStatus :</label>
+          <input type="text" class="form-control" [(ngModel)]="roomStatus" name="RoomStatus">
+        </div>
+
+        <div class="action">
+            <button class="btn btn-primary save" (click)="saveRoom()">Save Changes</button>
+            <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
+          </div>
+    </div>
+  </div>
+  
+  <!-- <div>
+    <footer>
+      <a routerLink="/manager-dashboard" class="btn btn-primary">Back</a>
+    </footer>
+  </div> -->
+  

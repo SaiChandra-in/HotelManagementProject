@@ -1,0 +1,70 @@
+/* General form styles */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styles for form elements */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin:8px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  button:disabled {
+    background-color: #CCCCCC;
+  }
+  
+  /* Error message styles */
+  small {
+    color: #d9534f;
+    font-size: 0.875rem;
+  }
+  
+  div {
+    margin-bottom: 1rem;
+  }
+  
+  /* Error highlighting for form controls */
+  input.ng-invalid.ng-touched,
+  select.ng-invalid.ng-touched {
+    border-color: #d9534f;
+  }
+  
+  input.ng-valid.ng-touched,
+  select.ng-valid.ng-touched {
+    border-color: #5bc0de;
+  }
+  

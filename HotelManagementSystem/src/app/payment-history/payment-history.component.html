@@ -1,0 +1,119 @@
+<!-- Search section ---1-->
+<ul>
+    
+  <li>
+      <a routerLink="/PayHistory" routerLinkActive="active">payment History</a>
+  </li>
+  
+  <li class="logout">
+      <button on-click="logOut()">Logout</button>
+  </li>
+</ul>
+
+<div>
+  <label for="searchYear">Year:</label>
+  <input type="number" id="searchYear" [(ngModel)]="searchYear" name="searchYear">
+
+  <label for="searchMonth">Month:</label>
+  <input type="number" id="searchMonth" [(ngModel)]="searchMonth" name="searchMonth" min="1" max="12">
+
+  <button (click)="searchPayments()">Search</button>
+</div>
+
+
+
+<div *ngIf="payments && payments.length > 0" class="container payment-table" text-align="center">
+    <div class="headers">
+        <h2 class="table-title">Payment-History</h2>
+        <!-- <button class="btn add" (click)="openForm()">Add Payment</button> -->
+        <!-- <button routerLink="/owner-dashboard" class="btn btn-primary" style="float:right">Back</button> -->
+    </div>
+  
+
+  <div class="pivot-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>PaymentId</th>
+            <th>ReservationId</th>
+            <th>TotalAmount</th>
+            <th>PaymentTime</th>
+            <th>CardDetails</th>
+            
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let p of payments">
+            <td>{{p.paymentId}}</td>
+            <td>{{p.reservationId }}</td>
+            <td>{{p.totalAmount}}</td>
+            <td>{{p.paymentTime}}</td>
+            <td>{{p.cardDetails}}</td>
+            
+            <td>
+              <!-- <button class="btn btn-primary" (click)="openForm(p)">Edit</button> -->
+            </td>
+            <!-- <td>
+              <button class="btn btn-danger" (click)="deletePayment(p.reservationId)">Delete</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+<div *ngIf="payments && payments.length === 0">
+    <p>No payments available</p>
+  </div>
+  <!-- <ng-template #err>
+      <p class="text-danger">Error fetching data</p>
+  </ng-template> -->
+
+  <div class="form-wrapper" *ngIf="showForm">
+    <div class="payment-form">
+        <h2 class = "text-center text-info">{{formHeader}}</h2>
+
+        <!-- <div class="group">
+          <label for="paymentId"> PaymentId :</label>
+          <input type="text" class="form-control" [(ngModel)]="paymentId" name="PaymentId">
+       </div> -->
+
+        <div class="group">
+            <label for="reservationId"> ReservationId :</label>
+            <input type="text" class="form-control" [(ngModel)]="reservationId" name="ReservationId">
+        </div>
+
+        <div class="group">
+          <label for="totalAmount">TotalAmount :</label>
+          <input type="int" class="form-control" [(ngModel)]="totalAmount" name="TotalAmount">
+        </div>
+
+        <div class="group">
+          <label for="paymentTime">PaymentTime :</label>
+          <input type="text" class="form-control" [(ngModel)]="paymentTime" name="PaymentTime">
+        </div>
+    
+        <div class="group">
+          <label for="cardDetails">CardDetails :</label>
+          <input type="number" class="form-control" [(ngModel)]="cardDetails" name="CardDetails">
+        </div>
+
+        <!-- <div class="group">
+            <label for="paymentStatus">paymentStatus :</label>
+            <input type="text" class="form-control" [(ngModel)]="paymentStatus" name="PaymentStatus">
+        </div> -->
+
+        <div class="action">
+            <button class="btn btn-primary save" (click)="savePayment()">Save Changes</button>
+            <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
+          </div>
+    </div>
+  </div>
+  <!-- <div>
+    <footer>
+      <a routerLink="/receptionist-dashboard" class="btn btn-primary">Back</a>
+    </footer>
+  </div> -->
+  
+
+  

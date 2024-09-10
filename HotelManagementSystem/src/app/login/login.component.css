@@ -1,0 +1,71 @@
+html {
+  background-color: #CCCCFF; /* Change this to your desired color */
+}
+
+:host {
+  display: block;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('/assets/Background4.jpg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 98vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+    width: 300px;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    background-color: hsla(0, 0%, 75%, 0.317);
+  }
+  
+/* styles.css or styles.scss */
+
+
+
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  label {
+    margin-bottom: .5em;
+    color: aqua;
+    display: block;
+  }
+  
+  input {
+    border: 1px solid #CCCCCC;
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 0.7em;
+    color: #FFFFFF;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:8px;
+  }
+  
+  button:disabled {
+    background-color: #CCCCCC;
+  }
+  
+  .error {
+    color: red;
+  }
+  .btn-primary{
+    background-color: #337ab7;
+    color: white;
+    padding: 15px 20px;
+}

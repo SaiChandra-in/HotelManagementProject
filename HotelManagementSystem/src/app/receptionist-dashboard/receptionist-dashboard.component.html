@@ -1,0 +1,25 @@
+<html>
+<ul>
+    
+    <li>
+        <a routerLink="/payment" routerLinkActive="active">payment</a>
+    </li>
+    <li>
+        <a routerLink="/reservation" routerLinkActive="active">reservation</a>
+    </li>
+    <li>
+        <a routerLink="/guest" routerLinkActive="active">guest</a>
+    </li>
+    <li class="logout">
+        <button on-click="logOut()">Logout</button>
+    </li>
+</ul>
+<div class="image-container">
+    <img [src]="imageUrl" alt="Rotating Image">
+    <div class="text-overlay">
+        <h1>Welcome {{s}}</h1>
+        <p>Have a great day with Eldorado!</p>
+    </div>
+  </div>
+
+</html>

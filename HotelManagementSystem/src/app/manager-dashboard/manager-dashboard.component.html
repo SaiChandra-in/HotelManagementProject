@@ -1,0 +1,35 @@
+
+<html>
+
+
+<ul>
+    <li>
+        <a routerLink="/staff" routerLinkActive="active">staff</a>
+    </li>
+    <li>
+        <a routerLink="/room" routerLinkActive="active">room</a>
+    </li>
+    <li>
+        <a routerLink="/inventory" routerLinkActive="active">inventory</a>
+    </li>
+    <li class="logout">
+        <button on-click="logOut()">Logout</button>
+    </li>
+</ul>
+ <!-- <div class="image">
+    <div class="text-overlay">
+        <h1>Welcome {{s}}</h1>
+        <p>Have a great day with Eldorado!</p>
+    </div>
+</div>  -->
+<div class="image-container">
+    <img [src]="imageUrl" alt="Rotating Image">
+    <div class="text-overlay">
+        <h1>Welcome {{s}}</h1>
+        <p>Have a great day with Eldorado!</p>
+    </div>
+  </div>
+  
+</html>
+
+

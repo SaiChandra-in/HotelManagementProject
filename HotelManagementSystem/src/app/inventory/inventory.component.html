@@ -1,0 +1,104 @@
+<ul>
+  <li>
+      <a routerLink="/staff" routerLinkActive="active">staff</a>
+  </li>
+  <li>
+      <a routerLink="/room" routerLinkActive="active">room</a>
+  </li>
+  <li>
+      <a routerLink="/inventory" routerLinkActive="active">inventory</a>
+  </li>
+  <li class="logout">
+      <button on-click="logOut()">Logout</button>
+  </li>
+</ul>
+
+<div *ngIf="inventories && inventories.length > 0" class="container inventory-table" text-align="center">
+    <div class="headers">
+        <h2 class="table-title">Inventories</h2>
+        <!-- <button class="btn add" (click)="openForm()">Add Inventory</button> -->
+    </div>
+</div>
+  <div>
+    <button class="btn add" (click)="openForm()">Add Inventory</button>
+    <!-- <button routerLink="/manager-dashboard" class="btn btn-primary" style="float:right">Back</button> -->
+  </div>
+
+  <div class="pivot-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>InventoryId</th>
+            <th>ItemName</th>
+            <th>ItemDescription</th>
+            <th>Quantity</th>
+            <th>UnitPrice</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let i of inventories">
+            <td>{{i.inventoryId}}</td>
+            <td>{{i.itemName }}</td>
+            <td>{{i.itemDescription}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.unitPrice}}</td>
+
+            <td>
+              <button class="btn btn-primary" (click)="openForm(i)">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteInventory(i.inventoryId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<div *ngIf="inventories && inventories.length === 0">
+    <p>No inventories available</p>
+  </div>
+  <!-- <ng-template #err>
+      <p class="text-danger">Error fetching data</p>
+  </ng-template> -->
+
+  <div class="form-wrapper" *ngIf="showForm">
+    <div class="inventory-form">
+        <h2 class = "text-center text-info">{{formHeader}}</h2>
+
+        <!-- <div class="group">
+          <label for="inventoryId"> InventoryId :</label>
+          <input type="text" class="form-control" [(ngModel)]="inventoryId" name="InventoryId">
+        </div> -->
+
+        <div class="group">
+            <label for="itemName"> ItemName :</label>
+            <input type="text" class="form-control" [(ngModel)]="itemName" name="ItemName">
+        </div>
+
+        <div class="group">
+          <label for="itemDescription">ItemDescription :</label>
+          <input type="int" class="form-control" [(ngModel)]="itemDescription" name="ItemDescription">
+        </div>
+
+        <div class="group">
+          <label for="quantity">Quantity :</label>
+          <input type="text" class="form-control" [(ngModel)]="quantity" name="Quantity">
+        </div>
+    
+        <div class="group">
+          <label for="unitPrice">UnitPrice :</label>
+          <input type="number" class="form-control" [(ngModel)]="unitPrice" name="UnitPrice">
+        </div>
+
+        <div class="action">
+            <button class="btn btn-primary save" (click)="saveInventory()">Save Changes</button>
+            <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
+          </div>
+    </div>
+  </div>
+  <!-- <div>
+    <footer>
+      <a routerLink="/manager-dashboard" class="btn btn-primary">Back</a>
+    </footer>
+  </div> -->
+  

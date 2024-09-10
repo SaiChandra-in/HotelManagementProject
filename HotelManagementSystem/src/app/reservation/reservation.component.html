@@ -1,0 +1,189 @@
+<ul>
+    
+  <li>
+      <a routerLink="/payment" routerLinkActive="active">payment</a>
+  </li>
+  <li>
+      <a routerLink="/reservation" routerLinkActive="active">reservation</a>
+  </li>
+  <li>
+      <a routerLink="/guest" routerLinkActive="active">guest</a>
+  </li>
+  <li class="logout">
+      <button on-click="logOut()">Logout</button>
+  </li>
+</ul>
+
+
+<div *ngIf="reservations && reservations.length > 0" class="container reservation-table" text-align="center">
+    <div class="headers">
+        <h2 class="table-title">Reservations</h2>
+        <!-- <button class="btn add" (click)="openForm()">Add reservation</button> -->
+    </div>
+  </div>
+  <div>
+    <button class="btn add" (click)="openForm()">Add Reservation</button>
+    <!-- <button routerLink="/receptionist-dashboard" class="btn btn-primary" style="float:right">Back</button> -->
+  </div>
+
+  <div class="pivot-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ReservationId</th>
+            <th>GuestId</th>
+            <th>RoomId</th>
+            <th>CheckInDate</th>
+            <th>CheckOutDate</th>
+            <th>NumberOfAdults</th>
+            <th>NumberOfChildren</th>
+            <th>ReservationStatus</th>
+            <!-- <th>Price</th>
+            <th>Taxes</th>
+            <th>ServiceCost</th> -->
+            <th>TotalAmount</th>
+            <!-- <th>creditCardDetails</th>
+            <th>paymentTime</th>
+            <th>paymentStatus</th> -->
+            </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let r of reservations">
+            <td>{{r.reservationId}}</td>
+            <td>{{r.guestId }}</td>
+            <td>{{r.roomId}}</td>
+            <td>{{r.checkInDate}}</td>
+            <td>{{r.checkOutDate}}</td>
+            <td>{{r.numberOfAdults}}</td>
+            <td>{{r.numberOfChildren}}</td>
+            <td>{{r.reservationStatus}}</td>
+            <!-- <td>{{r.price}}</td>
+            <td>{{r.taxes}}</td>
+            <td>{{r.serviceCost}}</td> -->
+            <td>{{r.totalAmount}}</td>
+            <!-- <td>{{r.creditCardDetails}}</td>
+            <td>{{r.paymentTime}}</td>
+            <td>{{r.paymentStatus}}</td> -->
+            <td>
+              <button class="btn btn-primary" (click)="openForm(r)">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteReservation(r.reservationId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+<div *ngIf="reservations && reservations.length === 0">
+    <p>No reservations available</p>
+  </div>
+  <!-- <ng-template #err>
+      <p class="text-danger">Error fetching data</p>
+  </ng-template> -->
+
+  <div class="form-wrapper" *ngIf="showForm">
+    <div class="reservation-form">
+        <h2 class = "text-center text-info">{{formHeader}}</h2>
+
+        <!-- <div class="group">
+          <label for="reservationId"> ReservationId :</label>
+          <input type="text" class="form-control" [(ngModel)]="reservationId" name="ReservationId">
+        </div> -->
+
+        <div class="group">
+            <label for="guestId"> GuestId :</label>
+            <select class="form-control" [(ngModel)]="guestId" name="GuestId">
+              <option *ngFor="let guest of guests" [value]="guest.guestId">
+                {{ guest.guestName }} (guestId: {{ guest.guestId }})
+              </option>
+            </select>
+            <!-- <input type="text" class="form-control" [(ngModel)]="guestId" name="GuestId"> -->
+        </div>
+
+        <div class="group">
+            <label for="roomId"> RoomId :</label>
+            <select class="form-control" [(ngModel)]="roomId" name="RoomId">
+              <option *ngFor="let room of rooms" [value]="room.roomId">
+                {{ room.roomNumber }},{{room.roomDescription}} (RoomId: {{ room.roomId }})
+              </option>
+            </select>
+            <!-- <input type="text" class="form-control" [(ngModel)]="roomId" name="RoomId"> -->
+        </div>
+
+        <div class="group">
+          <label for="checkInDate">CheckInDate :</label>
+          <input type="date" class="form-control" [(ngModel)]="checkInDate" name="CheckInDate" [min]="minDate" required>
+        </div>
+
+        <div class="group">
+          <label for="checkOutDate">CheckOutDate :</label>
+          <input type="date" class="form-control" [(ngModel)]="checkOutDate" name="CheckOutDate" [min]="minDate" required>
+        </div>
+    
+        <div class="group">
+          <label for="numberOfAdults">NumberOfAdults :</label>
+          <input type="number" class="form-control" [(ngModel)]="numberOfAdults" name="NumberOfAdults">
+        </div>
+
+        <div class="group">
+            <label for="numberOfChildren">NumberOfChildren :</label>
+            <input type="text" class="form-control" [(ngModel)]="numberOfChildren" name="NumberOfChildren">
+        </div>
+ 
+        <div class="group">
+          <label for="reservationStatus">ReservationStatus :</label>
+          <input type="text" class="form-control" [(ngModel)]="reservationStatus" name="ReservationStatus">
+        </div>
+
+        <div class="group">
+            <label for="price">Price :</label>
+            <input type="text" class="form-control" [(ngModel)]="price" name="Price">
+        </div>
+
+        <div class="group">
+            <label for="taxes">Taxes :</label>
+            <input type="text" class="form-control" [(ngModel)]="taxes" name="Taxes">
+        </div>
+
+        <div class="group">
+            <label for="serviceCost">ServiceCost :</label>
+            <input type="text" class="form-control" [(ngModel)]="serviceCost" name="ServiceCost">
+        </div>
+
+        <div class="group">
+            <label for="totalAmount">TotalAmount :</label>
+            <input type="text" class="form-control" [(ngModel)]="totalAmount" name="TotalAmount">
+        </div>
+
+        <div class="group">
+          <label for="creditCardDetails">CreditCardDetails :</label>
+          <input type="text" class="form-control" [(ngModel)]="creditCardDetails" name="CreditCardDetails">
+        </div>
+
+        <div class="group">
+          <label for="paymentTime">PaymentTime :</label>
+          <input type="text" class="form-control" [(ngModel)]="paymentTime" name="PaymentTime">
+        </div>
+
+        <div class="group">
+          <label for="paymentStatus">PaymentStatus :</label>
+          <input type="text" class="form-control" [(ngModel)]="paymentStatus" name="PaymentStatus">
+        </div>
+
+        <div class="action">
+            <button class="btn btn-primary save" (click)="saveReservation()">Save Changes</button>
+            <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
+          </div>
+    </div>
+  </div>
+  <!-- <div>
+    <footer>
+      <a routerLink="/receptionist-dashboard" class="btn btn-primary">Back</a>
+    </footer>
+  </div> -->
+  
+
+  
+  

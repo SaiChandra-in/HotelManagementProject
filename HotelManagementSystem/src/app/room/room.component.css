@@ -1,0 +1,220 @@
+/* .room-table{
+    width:1150px;
+    padding: 20px 25px;
+    background-color:white;
+    margin:30px 0;
+    border-radius: 3px;
+}
+.table{
+    width:960px;
+    padding: 20px 25px;
+    background-color:white;
+    margin:30px 0;
+    border-radius: 3px;
+}
+.headers{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+    background-color: #435d7d;
+    color: white;
+}
+.add{
+    background-color: #5cb85c;
+    color: white;
+    padding: 15px;
+}
+
+
+.btn-primary{
+    background-color: #337ab7;
+    color: white;
+    padding: 15px 20px;
+}
+.btn-danger{
+    background-color: red;
+    padding: 15px;
+}
+th{
+    text-align: center;
+    padding: 20px;
+}
+td{
+    text-align: center;
+    padding: 20px;
+}
+.form-wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    width:100%;
+    position: fixed;
+    top:0%;
+    background-color: rgb(0,0,0,0.5);
+    z-index: 100;
+}
+
+.room-form{
+    background-color: white;
+    width:700px;
+    padding: 20px 50px;
+    border-radius: 5px;
+}
+
+.form-control{
+    width:100%;
+    height: 30px;
+}
+.group{
+    display: flex;
+    margin:15px 0;
+}
+
+.group label{
+    width:160px;
+    line-height: 35px;
+    height: 40px;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    gap:100px;
+    margin: 20px;
+} */
+ul li{
+    list-style: none;
+    padding:8px;
+}
+ul li a {
+    text-decoration: none;
+}
+ul{
+    display :flex;
+    justify-content: flex-start;
+    background-color: rgb(138,128,128);
+    height : 40px;
+    /* width:1835px; */
+    width:1160px
+}
+a{
+    line-height:25px;
+    color:white;
+    margin:20px;
+    padding:10px 10px;
+}
+.active{
+    background-color: rgb(217, 8, 29);
+}
+
+/* Container for the entire page */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Header styling */
+  .headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-title {
+    font-size: 2em;
+  }
+  
+  /* Pivot Table Styling */
+  .pivot-table {
+    margin-bottom: 10px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .table td {
+    background-color: #fff;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn.add {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .form-wrapper {
+    margin-top: 20px;
+  }
+  
+  .reservation-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .group {
+    margin-bottom: 15px;
+  }
+  
+  .group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-info {
+    color: #17a2b8;
+  }
+  
+.logout{
+    margin-left: auto;
+ }
